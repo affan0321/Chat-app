@@ -1,38 +1,153 @@
+body {
+  background-color: #2a2a2a; /* Dark background */
+  font-family: Arial, sans-serif;
+  color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
+  max-width: 728px;
+  margin: 0 auto;
+  background: #1e1e1e; /* Chat container background */
+  border-radius: 8px;
+  overflow: hidden; /* Rounded corners */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+  background-color: #181717; /* Header background */
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header h1 {
+  font-size: 1.5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+section {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height: 80vh; /* Adjust for header */
+  padding: 20px;
+}
+
+main {
+  padding: 10px;
+  height: 70vh; /* Adjusted for better spacing */
+  margin: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  background-color: #282c34; /* Message area background */
+}
+
+main::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+main::-webkit-scrollbar-thumb {
+  background: #5a5a5a;
+  border-radius: 10px;
+}
+
+form {
+  height: 60px; /* Adjust height */
+  background-color: #1c1c1c; /* Input area background */
+  display: flex;
+  border-top: 1px solid #5a5a5a; /* Top border */
+}
+
+form input {
+  flex: 1;
+  line-height: 1.5;
+  font-size: 1rem;
+  background: #3a3a3a;
   color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
 }
 
-.App-link {
-  color: #61dafb;
+form button {
+  background-color: #4CAF50; /* Send button color */
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 5px; /* Space between buttons */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+form button:hover {
+  background-color: #45a049; /* Send button hover effect */
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.sent {
+  flex-direction: row-reverse;
+}
+
+.sent p {
+  color: white;
+   background: #007bff;
+  padding: 15px;
+  border-radius: 20px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.received p {
+  background: #e5e5ea; /* Received message background */
+  color: black;
+  padding: 10px;
+  border-radius: 20px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 5px;
+}
+.block{
+  background-color: rgb(191, 29, 29);
+}
+.block:hover{
+  background-color: rgb(153, 21, 21);
+}
+
+.signOut{
+  width: 100px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: transparent;
+  color: #f0f0f0;
+  border: 0;
+  outline: 0;
+  font-size: large;
+}
+
+.logOut{
+  border-radius: 20px;
+  width: 100px;
+  height: 40px;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  color: #f0f0f0;
+  font-size: large;
 }
