@@ -8,7 +8,7 @@ const SignIn = () => {
     await signInWithPopup(auth, provider);
   };
 
-  return <button onClick={signInWithGoogle}>Sign in with Google</button>;
+  return <button className='google'  onClick={signInWithGoogle}>Sign in with Google</button>;
 };
 
 export default SignIn;

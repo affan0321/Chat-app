@@ -3,7 +3,9 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './components/firebase';
 import SignIn from './components/signIn';
 import SignOut from './components/signOut';
+// import Chatroom from './components/chatRoom';
 import Chatroom from './components/chatRoom';
+
 
 // Main App Component
 function App() {

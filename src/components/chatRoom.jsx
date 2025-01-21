@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import ChatMessage from './chatMessage';
-import { getMessages,sendMessage } from './firebaseFunction';
+import { getMessages, sendMessage, deleteMessage } from './firebaseFunction';
 import { auth } from './firebase';
+
 const Chatroom = () => {
   const [formValue, setFormValue] = useState('');
   const [isBlocked, setIsBlocked] = useState(false);
@@ -27,20 +28,42 @@ const Chatroom = () => {
     setFormValue('');
   };
 
+  const deleteMessageHandler = async (id) => {
+    try {
+      await deleteMessage(id);
+      console.log('Message deleted successfully:', id);
+    } catch (error) {
+      console.error('Error deleting message:', error);
+    }
+  };
+
   return (
     <div>
       <main>
-        {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+        {messages &&
+          messages.map((msg) => (
+            <ChatMessage
+              key={msg.id}
+              message={msg}
+              onDelete={deleteMessageHandler}
+            />
+          ))}
       </main>
       <form onSubmit={sendMessageHandler}>
-        <input 
-          value={formValue} 
-          onChange={(e) => setFormValue(e.target.value)} 
-          placeholder={isBlocked ? "You cannot message this user." : "Say something nice"} 
+        <input
+          value={formValue}
+          onChange={(e) => setFormValue(e.target.value)}
+          placeholder={isBlocked ? "You cannot message this user." : "Say something nice"}
           disabled={isBlocked}
         />
-        <button type="submit">Send</button>
-        <button className='block' type="button" onClick={() => setIsBlocked(!isBlocked)}>
+        <button type="submit" disabled={!formValue || isBlocked}>
+          Send
+        </button>
+        <button
+          className="block"
+          type="button"
+          onClick={() => setIsBlocked(!isBlocked)}
+        >
           {isBlocked ? 'Unblock' : 'Block'}
         </button>
       </form>
@@ -49,5 +72,4 @@ const Chatroom = () => {
 };
 
 export default Chatroom;
-
 

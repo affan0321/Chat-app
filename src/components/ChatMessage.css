@@ -1,0 +1,26 @@
+.message {
+    position: relative;
+  }
+  
+  .context-menu {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    background: white;
+    border: 1px solid black;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .context-menu button {
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .context-menu button:hover {
+    background: lightgray;
+  }
+  

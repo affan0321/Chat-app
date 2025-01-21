@@ -151,3 +151,14 @@ img {
   color: #f0f0f0;
   font-size: large;
 }
+
+.google{
+  height: 50px;
+  background-color: transparent;
+  color: #e5e5ea;
+  font-size: large;
+  border: none;
+  outline: none;
+  background-color: #282c34;
+  cursor: pointer;
+}
